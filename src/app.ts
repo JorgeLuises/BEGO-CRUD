@@ -1,10 +1,13 @@
-import app from "@server/serve";
-import dotenv from "dotenv";
+import express, { type Application } from 'express';
+import router from './routes/auth.js';
+import morgan from 'morgan';
 
-dotenv.config();
+const app: Application = express();
 
-const PORT = process.env.PORT || 3000;
+//Routes
+app.use('/api', router);
 
-app.listen(PORT, () => {
-    console.log(`servidor corriendo en puerto ${PORT}`);
-});
+//Middlewares
+app.use(morgan('dev'));
+
+export default app;
