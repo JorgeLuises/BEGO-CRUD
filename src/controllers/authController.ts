@@ -23,7 +23,7 @@ export async function registro (req: Request, res: Response) {
 
     // ====== Creando un token ======= //
     const token: string = jwt.sign({_id: savedUser.id}, process.env.SECRET_TOKEN || 'tokentest', {expiresIn: 60 * 60 * 24});
-    res.header('auth-token', token).json(savedUser);
+    return res.header('auth-token', token).json(savedUser);
 };
 
 export async function logIn (req: Request, res: Response) {
@@ -36,5 +36,5 @@ export async function logIn (req: Request, res: Response) {
 
     // ====== Creando un token ======= //
     const token: string = jwt.sign({_id: user.id}, process.env.SECRET_TOKEN || 'tokentest', {expiresIn: 60 * 60 * 24});
-    res.header('auth-token', token).json({message: 'Usuario logueado correctamente'});
+    return res.header('auth-token', token).json({message: 'Usuario logueado correctamente'});
 };

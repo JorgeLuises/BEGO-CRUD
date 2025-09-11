@@ -1,5 +1,6 @@
 import express, { type Application } from 'express';
-import router from './routes/auth.js';
+import userRouter from './routes/auth.js';
+import truckRouter from './routes/truck.js';
 import morgan from 'morgan';
 
 const app: Application = express();
@@ -8,7 +9,8 @@ const app: Application = express();
 app.use(express.json());
 
 //Routes
-app.use('/api/users', router);
+app.use('/api/users', userRouter);
+app.use('/api/trucks', truckRouter);
 
 //Middlewares
 app.use(morgan('dev'));
