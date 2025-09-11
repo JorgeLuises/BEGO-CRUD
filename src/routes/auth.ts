@@ -1,9 +1,12 @@
 import { Router } from "express";
+import { registro, logIn } from "../controllers/authController.js";
 
 const router: Router = Router();
 
-router.get('/', (req, res) => {
-    res.send('Api funcionando');
-});
+//Endpoint de registro
+router.post('/registro', registro);
+
+//Endpoint de login
+router.post('/login', logIn);
 
 export default router;

@@ -4,8 +4,11 @@ import morgan from 'morgan';
 
 const app: Application = express();
 
+//settings
+app.use(express.json());
+
 //Routes
-app.use('/api', router);
+app.use('/api/users', router);
 
 //Middlewares
 app.use(morgan('dev'));
