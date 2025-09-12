@@ -23,6 +23,8 @@ export async function crearOrden(req: Request, res: Response) {
             return res.status(404).json({ ErrorMessage: 'La ubicación de recolección o de entrega no se encuentran en la base de datos' });
         }
 
+        if (pickupExists === dropoffExists) return res.status(400).json({ ErrorMessage: 'La locación de recolección no puede ser la misma que la locación de entrega'});
+
         const newOrder: IOrder = new Order({
             user: new Types.ObjectId(req.userId),
             truck: new Types.ObjectId(truck),
