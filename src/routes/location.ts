@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import verifyToken from 'middlewares/verifyToken';
+import verifyToken from '../middlewares/verifyToken.js';
 import { obtenerUbicaciones, crearUbicacion, actualizarUbicacion, eliminarUbicacion } from '../controllers/locationController.js';
 
 const router: Router = Router();

@@ -1,6 +1,6 @@
 import { type Request, type Response } from 'express';
 import { Types } from 'mongoose';
-import Location, { type ILocation } from 'models/Location';
+import Location, { type ILocation } from '../models/Location.js';
 
 export async function obtenerUbicaciones (req: Request, res: Response) {
     try {
